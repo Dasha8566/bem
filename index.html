@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Методология БЭМ</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    </head>
+    <body>
+        <!-- Блок - независимый компонент страницы, может использоваться множество раз, отвечает на вопрос "Что это", а не какой и как выглядит -->
+    <div class="about">
+        <!-- * -->
+        <div class="title"></div>
+    </div>
+    <div class="portfolio">
+        <!-- * Что качается стилей, то не нужно блоку указывать внешнюю геометрию, 
+        например отступы либо позиционирование, 
+        таким образом обеспечивается независимость блока, 
+        при которой возможно повторное его использование либо перенос с места на место (например title)
+        <div class="title"></div>
+    </div> -->
+        <form action="#" class="search-form"></form>
+
+
+
+
+
+
+    <!-- Вложенность блоков -->
+
+    <!-- Блок `about` -->
+    <div class="about">
+        <!-- Вложенный блок `title` -->
+        <div class="title"></div>
+        <!-- Вложенный блок `subtitle` -->
+        <div class="subtitle"></div>
+    </div>
+
+    <!-- Элемент - составная часть блока, которая не может использоваться в отрыве от него, имя класса должно отвечать на "Что это?" -->
+
+    <!-- Блок -->
+    <nav class="menu">
+        <!-- Элемент -->
+        <a href="" class="menu__link"></a>
+        <!-- Элемент -->
+        <a href="" class="menu__link"></a>
+        <!-- Элемент -->
+        <a href="" class="menu__link"></a>
+        <!-- Элемент -->
+        <a href="" class="menu__link"></a>
+    </nav>
+
+    
+    
+    
+    
+    <!-- Вложенность элементов, допустима любая вложенность элементов, элемент это всегда часть блока-->
+
+    <!-- Верно -->
+    <!-- Блок `row` -->
+    <div class="row">
+        <!-- Элемент `column` -->
+        <div class="row__column">
+             <!-- Элемент `item` -->
+             <div class="row__item"></div>
+        </div>
+    </div>
+
+       <!-- Неверно -->
+    <!-- Блок `row` -->
+    <div class="row">
+        <!-- Элемент `column` -->
+        <div class="row__column">
+             <!-- Элемент `item` -->
+             <div class="row__column__item"></div>
+        </div>
+    </div>
+
+
+
+    <!-- Принадлежность элементов, элемент всегда должен быть частью блока -->
+    <!-- Верный пример -->
+    <!-- Блок `about` -->
+     <div class="about">
+        <!-- Элемент `title` -->
+        <div class="about__title"></div>
+        <!-- Элемент `subtitle` -->
+        <div class="about__subtitle"></div>
+     </div>
+
+    <!-- Неверный пример -->
+    <!-- Блок `about` -->
+    <div class="about">
+        <!-- Элемент `title` -->
+        <div class="about__title"></div>
+     </div>
+     <!-- Элемент `subtitle` -->
+    <div class="about__subtitle"></div>
+
+
+ <!-- Необязательность элементов -->
+
+ <!-- Блок `about`-->
+ <div class="about">
+     <!-- Вложенный блок `title `-->
+     <div class="title"></div>
+     <!-- Вложенный блок `subtitle `-->
+     <div class="subtitle"></div>
+ </div>
+
+
+ <!-- Модификатор - дополняет/уточняет стиль блока либо элемента, когда нужно выделить элемент из множества таких же, должно отвечать на вопросы "какой?" "как выглядит?" "состояние" -->
+ <!-- блок `menu` -->
+ <nav class="menu">
+     <!-- элемент `item` и модификатор `active` -->
+    <a href="" class="menu__item menu__item_active">HOME</a>
+    <!-- элемент `item` -->
+    <a href="" class="menu__item">ABOUT US</a>
+    <!-- элемент `item` -->
+    <a href="" class="menu__item">PORTFOLIO</a>
+    <!-- элемент `item` -->
+    <a href="" class="menu__item">CONTACT</a>
+ </nav>
+
+
+
+  <!-- Микс - позволяет использовать и блоки иэлементы в одном объекте -->
+
+   <!-- Блок `about` -->
+  <div class="about">
+     <!-- Элемент `title` -->
+    <div class="about__title title"></div>
+    <!-- Элемент `subtitle` -->
+    <div class="about__subtitle subtitle"></div>
+  </div>
+    </body>
+</html>
